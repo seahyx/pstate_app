@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'nav_container.dart';
 import 'placeholder.dart';
-import 'dashboard.dart';
+import 'dashboard/dashboard.dart';
+import 'parade_state/parade_state.dart';
 
 class NavWidget extends StatefulWidget {
 	
@@ -16,8 +18,8 @@ class _NavWidgetState extends State<NavWidget> {
 	String _appBarTitle = 'Placeholder';
 
 	final List<Widget> _children = [
-		DashboardWidget(),
-		PlaceholderWidget(Colors.red),
+		NavContainerWidget(DashboardWidget(), DashboardWidget().decoration),
+		NavContainerWidget(ParadeStateWidget(), ParadeStateWidget().decoration),
 		PlaceholderWidget(Colors.lightBlue)
 	];
 
