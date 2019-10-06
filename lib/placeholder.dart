@@ -4,7 +4,7 @@ class PlaceholderWidget extends StatelessWidget {
 	
 	final Color color;
 	
-	PlaceholderWidget(this.color);
+	const PlaceholderWidget(this.color);
 
 	@override
 	Widget build(BuildContext buildContext) {

@@ -5,11 +5,21 @@ class InfoCard extends StatelessWidget {
 
 	final double cardPadding;
 
-	final double borderRadius = 8.0;
+	final double cardMargin;
+
+	final double borderRadius;
 	
 	final String title, value;
 
-	InfoCard(this.cardPadding, this.title, this.value);
+	final IconData icon;
+
+	InfoCard({
+		this.icon = Icons.info,
+		this.title = 'Title',
+		this.value = 'Value',
+		this.cardPadding = 8.0,
+		this.cardMargin = 4.0,
+		this.borderRadius = 8.0,});
 
 	@override
 	Widget build(BuildContext buildContext) {
@@ -37,7 +47,7 @@ class InfoCard extends StatelessWidget {
 			shape: RoundedRectangleBorder(
 				borderRadius: BorderRadius.circular(borderRadius)
 			),
-			margin: EdgeInsets.all(cardPadding),
+			margin: EdgeInsets.all(cardMargin),
 			color: Color.fromRGBO(255, 255, 255, .75),
 			elevation: 0,
 		);

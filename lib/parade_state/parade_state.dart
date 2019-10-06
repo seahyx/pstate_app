@@ -3,16 +3,16 @@ import 'package:table_calendar/table_calendar.dart';
 
 class ParadeStateWidget extends StatefulWidget {
 
-	ParadeStateWidget({Key key}) : super(key: key);
-
 	// Background decoration
-	final BoxDecoration decoration = BoxDecoration(
+	static const BoxDecoration decoration = BoxDecoration(
 		gradient: LinearGradient(
 			begin: Alignment.topLeft,
 			end: Alignment.bottomRight,
 			colors: [Colors.blue, Colors.purple]
 		)
 	);
+
+	ParadeStateWidget({Key key}) : super(key: key);
 
 	@override
 	_PSWidgetState createState() => _PSWidgetState();
@@ -57,6 +57,9 @@ class _PSWidgetState extends State<ParadeStateWidget> {
 				selectedStyle: TextStyle(
 					color: Colors.white,
 					fontWeight: FontWeight.bold
+				),
+				todayStyle: TextStyle(
+					fontSize: 14.0,
 				)
 			),
 			headerStyle: HeaderStyle(

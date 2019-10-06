@@ -18,8 +18,12 @@ class _NavWidgetState extends State<NavWidget> {
 	String _appBarTitle = 'Placeholder';
 
 	final List<Widget> _children = [
-		NavContainerWidget(DashboardWidget(), DashboardWidget().decoration),
-		NavContainerWidget(ParadeStateWidget(), ParadeStateWidget().decoration),
+		NavContainerWidget(
+			body: DashboardWidget(),
+			decoration: DashboardWidget.decoration),
+		NavContainerWidget(
+			body: ParadeStateWidget(),
+			decoration: ParadeStateWidget.decoration),
 		PlaceholderWidget(Colors.lightBlue)
 	];
 
@@ -38,11 +42,38 @@ class _NavWidgetState extends State<NavWidget> {
 
 	@override
 	Widget build(BuildContext buildContext) {
+		
+		_appBarTitle = _titles[_currentIndex];
+
 		return Scaffold(
 			body: Stack(
 				children: <Widget>[
-					SizedBox.expand(
-						child:_children[_currentIndex],
+					Offstage(
+						offstage: _currentIndex != 0,
+						child: TickerMode(
+							enabled: _currentIndex == 0,
+							child: SizedBox.expand(
+								child: _children[0],
+							),
+						),
+					),
+					Offstage(
+						offstage: _currentIndex != 1,
+						child: TickerMode(
+							enabled: _currentIndex == 1,
+							child: SizedBox.expand(
+								child: _children[1],
+							),
+						),
+					),
+					Offstage(
+						offstage: _currentIndex != 2,
+						child: TickerMode(
+							enabled: _currentIndex == 2,
+							child: SizedBox.expand(
+								child: _children[2]
+							),
+						),
 					),
 					Positioned(
 						top: 0.0,

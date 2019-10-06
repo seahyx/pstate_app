@@ -5,16 +5,19 @@ import 'button_card.dart';
 
 class DashboardWidget extends StatelessWidget {
 
-	final double cardPadding = 8.0;
+	static const double cardPadding = 8.0;
+	static const double cardMargin = 8.0;
 
 	// Background decoration
-	final BoxDecoration decoration = BoxDecoration(
+	static const BoxDecoration decoration = BoxDecoration(
 		gradient: LinearGradient(
 			begin: Alignment.topLeft,
 			end: Alignment.bottomRight,
 			colors: [Colors.red, Colors.purple]
 		)
 	);
+
+	DashboardWidget({Key key}) : super(key: key);
 
 	@override
 	Widget build(BuildContext buildContext) {
@@ -26,39 +29,54 @@ class DashboardWidget extends StatelessWidget {
 						'Welcome, Ying Xiang',
 						style: TextStyle(color: Colors.white, fontSize: 32.0),
 					),
-					margin: EdgeInsets.fromLTRB(cardPadding, 0.0, 0.0, cardPadding),
+					margin: EdgeInsets.fromLTRB(cardPadding, 0.0, cardPadding, cardPadding),
 				),
-				Table(
-					children: <TableRow>[
-						TableRow(
-							children: <Widget>[
-								InfoCard(
-									cardPadding,
-									'Your Parade State Tomorrow (2/10/19)',
-									'P/GD'
-								),
-								InfoCard(
-									cardPadding,
-									'Your Parade State Today (1/10/19)',
-									'NSDC'
-								),
-							]
+				Row(
+					children: <Widget>[
+						Expanded(
+							child: Column(
+								children: <Widget>[
+									InfoCard(
+										title: 'Your Parade State Tomorrow (2/10/19)',
+										value: 'P/GD',
+										cardPadding: cardPadding,
+										cardMargin: cardMargin,
+									),
+									ButtonCard(
+										icon: Icons.list,
+										title: 'View Parade State',
+										cardPadding: cardPadding,
+										cardMargin: cardMargin,
+									),
+									ButtonCard(
+										icon: Icons.edit,
+										title: 'Edit Name List',
+										cardPadding: cardPadding,
+										cardMargin: cardMargin,
+									),
+								],
+							),
 						),
-						TableRow(
-							children: <Widget>[
-								ButtonCard(
-									cardPadding,
-									Icons.list,
-									'View Parade State'
-								),
-								ButtonCard(
-									cardPadding, 
-									Icons.assignment_turned_in, 
-									'Update Parade State for Tmr'
-								),
-							]
+						Expanded(
+							child: Column(
+								children: <Widget>[
+									InfoCard(
+										title: 'Your Parade State Today (1/10/19)',
+										value: 'NSDC',
+										cardPadding: cardPadding,
+										cardMargin: cardMargin,
+									),
+									ButtonCard(
+										icon: Icons.assignment_turned_in, 
+										title: 'Update Parade State for Tmr',
+										cardPadding: cardPadding,
+										cardMargin: cardMargin,
+									),
+								],
+							),
 						)
 					],
+					crossAxisAlignment: CrossAxisAlignment.start,
 				),
 			],
 			crossAxisAlignment: CrossAxisAlignment.start,
