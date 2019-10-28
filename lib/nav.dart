@@ -17,15 +17,7 @@ class _NavWidgetState extends State<NavWidget> {
 
 	String _appBarTitle = 'Placeholder';
 
-	final List<Widget> _children = [
-		NavContainerWidget(
-			body: DashboardWidget(),
-			decoration: DashboardWidget.decoration),
-		NavContainerWidget(
-			body: ParadeStateWidget(),
-			decoration: ParadeStateWidget.decoration),
-		PlaceholderWidget(Colors.lightBlue)
-	];
+	List<Widget> _children;
 
 	final List<String> _titles = [
 		'Dashboard',
@@ -39,6 +31,21 @@ class _NavWidgetState extends State<NavWidget> {
 			_appBarTitle = _titles[index];
 		});
 	}
+
+	@override
+	void initState() {
+		_children = [
+			NavContainerWidget(
+				body: DashboardWidget(onTabTapped: onTabTapped,),
+				decoration: DashboardWidget.decoration),
+			NavContainerWidget(
+				body: ParadeStateWidget(),
+				decoration: ParadeStateWidget.decoration),
+			PlaceholderWidget(Colors.lightBlue)
+		];
+
+		super.initState();
+  }
 
 	@override
 	Widget build(BuildContext buildContext) {

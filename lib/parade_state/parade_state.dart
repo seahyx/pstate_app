@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:pstate_app/consts.dart';
 
 class ParadeStateWidget extends StatefulWidget {
 
@@ -20,17 +21,30 @@ class ParadeStateWidget extends StatefulWidget {
 
 class _PSWidgetState extends State<ParadeStateWidget> {
 
-	final double cardPadding = 8.0;
+	static const double cardPadding = Consts.cardPadding;
+	static const double borderRadius = Consts.borderRadius;
 
-	final double borderRadius = 8.0;
+	String testText = '';
 
 	CalendarController _calendarController;
+
+	void onDaySelected(DateTime date, List events) {
+		print('The date selected is $date');
+
+		setState(() {
+			testText = 'The date selected is $date';
+		});
+	}
 
 	@override
 	void initState() {
 		super.initState();
 
 		_calendarController = CalendarController();
+		// _calendarController.setSelectedDay(_calendarController.selectedDay, runCallback: true);
+
+		WidgetsBinding.instance
+				.addPostFrameCallback((_) => _calendarController.setSelectedDay(_calendarController.selectedDay, runCallback: true));
 	}
 
 	@override
@@ -42,17 +56,20 @@ class _PSWidgetState extends State<ParadeStateWidget> {
 
 	@override
 	Widget build(BuildContext buildContext) {
+
 		return Column(
 			children: <Widget>[
-				_buildCard(_buildCalendar()),
-				_buildCard(Text('Testing testing 123'))
+				_buildCard(_buildCalendar(_calendarController, onDaySelected)),
+				_buildCard(Text(testText))
 			],
 		);
 	}
 
-	TableCalendar _buildCalendar() {
+	TableCalendar _buildCalendar(
+		CalendarController calendarController,
+		OnDaySelected onDaySelected) {
 		return TableCalendar(
-			calendarController: _calendarController,
+			calendarController: calendarController,
 			calendarStyle: CalendarStyle(
 				selectedStyle: TextStyle(
 					color: Colors.white,
@@ -66,6 +83,7 @@ class _PSWidgetState extends State<ParadeStateWidget> {
 				centerHeaderTitle: true,
 				formatButtonShowsNext: false
 			),
+			onDaySelected: onDaySelected,
 		);
 	}
 
