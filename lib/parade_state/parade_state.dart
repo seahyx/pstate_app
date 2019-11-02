@@ -100,8 +100,7 @@ class _PSWidgetState extends State<ParadeStateWidget> {
 				borderRadius: BorderRadius.circular(borderRadius)
 			),
 			margin: EdgeInsets.all(cardPadding),
-			color: Color.fromRGBO(255, 255, 255, .75),
-			elevation: 0.0,
+			color: Colors.white,
 		);
 	}
 }

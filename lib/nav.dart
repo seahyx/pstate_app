@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'nav_container.dart';
-import 'placeholder.dart';
 import 'dashboard/dashboard.dart';
 import 'parade_state/parade_state.dart';
 
@@ -22,7 +21,6 @@ class _NavWidgetState extends State<NavWidget> {
 	final List<String> _titles = [
 		'Dashboard',
 		'Parade State',
-		'Settings',
 	];
 
 	void onTabTapped(int index) {
@@ -36,12 +34,9 @@ class _NavWidgetState extends State<NavWidget> {
 	void initState() {
 		_children = [
 			NavContainerWidget(
-				body: DashboardWidget(onTabTapped: onTabTapped,),
-				decoration: DashboardWidget.decoration),
+				body: DashboardWidget(onTabTapped: onTabTapped,),),
 			NavContainerWidget(
-				body: ParadeStateWidget(),
-				decoration: ParadeStateWidget.decoration),
-			PlaceholderWidget(Colors.lightBlue)
+				body: ParadeStateWidget(),)
 		];
 
 		super.initState();
@@ -73,23 +68,12 @@ class _NavWidgetState extends State<NavWidget> {
 							),
 						),
 					),
-					Offstage(
-						offstage: _currentIndex != 2,
-						child: TickerMode(
-							enabled: _currentIndex == 2,
-							child: SizedBox.expand(
-								child: _children[2]
-							),
-						),
-					),
 					Positioned(
 						top: 0.0,
 						left: 0.0,
 						right: 0.0,
 						child: AppBar(
 							title: Text(_appBarTitle),
-							backgroundColor: Colors.transparent,
-							elevation: 0.0,
 						),
 					),
 					Positioned(
@@ -108,14 +92,10 @@ class _NavWidgetState extends State<NavWidget> {
 									icon: Icon(Icons.list),
 									title: Text(_titles[1])
 								),
-								BottomNavigationBarItem(
-									icon: Icon(Icons.settings),
-									title: Text(_titles[2])
-								),
 							],
-							backgroundColor: Colors.transparent,
+							backgroundColor: Theme.of(buildContext).backgroundColor,
 							elevation: 0.0,
-							selectedItemColor: Colors.white,
+							selectedItemColor: Theme.of(buildContext).primaryColorDark,
 						),
 					)
 				],

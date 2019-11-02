@@ -29,15 +29,16 @@ class InfoCard extends StatelessWidget {
 					children: <Widget>[
 						Container(
 							child: Center(
-								child: Text(title, style: TextStyle(color: Colors.black, fontSize: 16.0),),
+								child: Text(title, style: TextStyle(color: Colors.white, fontSize: 16.0),),
 							),
-							margin: EdgeInsets.all(8.0),
+							color: Colors.black54,
+							padding: EdgeInsets.all(cardPadding),
 						),
 						Container(
 							child: Center(
-								child: Text(value, style: TextStyle(color: Colors.black, fontSize: 32.0),),
+								child: Text(value, style: Theme.of(buildContext).textTheme.display1,),
 							),
-							height: 100,
+							padding: EdgeInsets.all(cardPadding),
 						)
 					],
 					crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,8 +49,8 @@ class InfoCard extends StatelessWidget {
 				borderRadius: BorderRadius.circular(borderRadius)
 			),
 			margin: EdgeInsets.all(cardMargin),
-			color: Color.fromRGBO(255, 255, 255, .75),
-			elevation: 0,
+			color: Colors.white,
+			clipBehavior: Clip.antiAlias,
 		);
 	}
 }

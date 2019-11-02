@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 
 class NavContainerWidget extends StatelessWidget {
 
-	final double cardPadding = 4.0;
+	final double cardPadding = 6.0;
 
 	final Widget body;
 
-	final BoxDecoration decoration;
-
-	NavContainerWidget({Key key, this.body, this.decoration}) : super(key: key);
+	NavContainerWidget({Key key, this.body}) : super(key: key);
 
 	@override
 	Widget build(BuildContext buildContext) {
@@ -28,7 +26,7 @@ class NavContainerWidget extends StatelessWidget {
 					padding: EdgeInsets.all(cardPadding),
 				)
 			),
-			decoration: decoration,
+			color: Theme.of(buildContext).backgroundColor,
 		);
 	}
 }

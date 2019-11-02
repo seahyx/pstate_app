@@ -37,14 +37,14 @@ class ButtonCard extends StatelessWidget {
 					child: Row(
 						children: <Widget>[
 							Container(
-								child: Icon(icon, size: 24.0, color: Colors.white,),
+								child: Icon(icon, size: 24.0, color: Colors.black87,),
 								margin: EdgeInsets.only(right: cardPadding * 2)
 							),
 							Flexible(
 								child: Text(
 									title,
 									style: TextStyle(
-										color: Colors.white,
+										color: Colors.black87,
 										fontSize: 18.0,
 										fontWeight: FontWeight.bold,
 									),
@@ -63,8 +63,7 @@ class ButtonCard extends StatelessWidget {
 				borderRadius: BorderRadius.circular(borderRadius)
 			),
 			margin: EdgeInsets.all(cardMargin),
-			color: Color.fromRGBO(0, 0, 0, .5),
-			elevation: 0,
+			color: Colors.white,
 		);
 	}
 }
