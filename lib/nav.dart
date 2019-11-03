@@ -34,9 +34,12 @@ class _NavWidgetState extends State<NavWidget> {
 	void initState() {
 		_children = [
 			NavContainerWidget(
-				body: DashboardWidget(onTabTapped: onTabTapped,),),
+				body: DashboardWidget(onTabTapped: onTabTapped,),
+			),
 			NavContainerWidget(
-				body: ParadeStateWidget(),)
+				body: ParadeStateWidget(),
+				backgroundColor: Colors.amber[100],
+			)
 		];
 
 		super.initState();
@@ -93,7 +96,7 @@ class _NavWidgetState extends State<NavWidget> {
 									title: Text(_titles[1])
 								),
 							],
-							backgroundColor: Theme.of(buildContext).backgroundColor,
+							backgroundColor: Colors.transparent,
 							elevation: 0.0,
 							selectedItemColor: Theme.of(buildContext).primaryColorDark,
 						),

@@ -103,6 +103,7 @@ class DashboardWidget extends StatelessWidget {
 					cardPadding: cardPadding,
 					cardMargin: cardMargin,
 					onPressed: () {},
+					color: Colors.lightGreenAccent[100],
 				),
 				ButtonCard(
 					icon: Icons.list,
@@ -112,6 +113,7 @@ class DashboardWidget extends StatelessWidget {
 					onPressed: () {
 						onTabTapped(1);
 					},
+					color: Colors.amber[100],
 				),
 				ButtonCard(
 					icon: Icons.people,

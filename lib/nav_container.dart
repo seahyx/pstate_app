@@ -7,7 +7,9 @@ class NavContainerWidget extends StatelessWidget {
 
 	final Widget body;
 
-	NavContainerWidget({Key key, this.body}) : super(key: key);
+	final Color backgroundColor;
+
+	NavContainerWidget({Key key, this.body, this.backgroundColor}) : super(key: key);
 
 	@override
 	Widget build(BuildContext buildContext) {
@@ -26,7 +28,7 @@ class NavContainerWidget extends StatelessWidget {
 					padding: EdgeInsets.all(cardPadding),
 				)
 			),
-			color: Theme.of(buildContext).backgroundColor,
+			color: backgroundColor ?? Theme.of(buildContext).backgroundColor,
 		);
 	}
 }

@@ -15,13 +15,16 @@ class ButtonCard extends StatelessWidget {
 
 	final VoidCallback onPressed;
 
+	final Color color;
+
 	const ButtonCard({
 		this.icon = Icons.info,
 		this.title = 'Title',
 		this.cardPadding = 8.0,
 		this.cardMargin = 4.0,
 		this.borderRadius = 8.0,
-		this.onPressed});
+		this.onPressed,
+		this.color = Colors.white});
 	
 	void onTap(BuildContext context) {
 		Scaffold.of(context).showSnackBar(SnackBar(
@@ -63,7 +66,7 @@ class ButtonCard extends StatelessWidget {
 				borderRadius: BorderRadius.circular(borderRadius)
 			),
 			margin: EdgeInsets.all(cardMargin),
-			color: Colors.white,
+			color: color,
 		);
 	}
 }

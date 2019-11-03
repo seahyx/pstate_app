@@ -25,11 +25,18 @@ class _NamelistWidgetState extends State<NamelistWidget> {
 		Person(rank: 'PTE', fullName: 'Ong Zheng Da'),
 	];
 
+	void onAddDialogDone(BuildContext buildContext, Person person) {
+		Navigator.pop(buildContext);
+		setState(() {
+			_nameList.add(person);
+		});
+	}
+
 	void onAddEntryTapped() {
 		showDialog(
 			context: buildContext,
 			builder: (buildContext) {
-				return AddDialog();
+				return AddDialog(onDonePressed: onAddDialogDone,);
 			}
 		);
 	}
