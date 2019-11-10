@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 
 import 'package:pstate_app/namelist/add_dialog.dart';
-import 'package:pstate_app/obj_classes/person.dart';
+import 'package:pstate_app/obj_classes/personnel.dart';
 import 'expandable_fab.dart';
 
 class NamelistWidget extends StatefulWidget {
@@ -17,15 +17,15 @@ class _NamelistWidgetState extends State<NamelistWidget> {
 
 	BuildContext buildContext;
 
-	List<Person> _nameList = [
-		Person(rank: 'ME3', fullName: 'Lua'),
-		Person(rank: 'LCP', fullName: 'Jackson Tiong'),
-		Person(rank: 'LCP', fullName: 'Seah Ying Xiang'),
-		Person(rank: 'LCP', fullName: 'Law Kok Mun'),
-		Person(rank: 'PTE', fullName: 'Ong Zheng Da'),
+	List<Personnel> _nameList = [
+		Personnel(rank: 'ME3', fullName: 'Lua'),
+		Personnel(rank: 'LCP', fullName: 'Jackson Tiong'),
+		Personnel(rank: 'LCP', fullName: 'Seah Ying Xiang'),
+		Personnel(rank: 'LCP', fullName: 'Law Kok Mun'),
+		Personnel(rank: 'PTE', fullName: 'Ong Zheng Da'),
 	];
 
-	void onAddDialogDone(BuildContext buildContext, Person person) {
+	void onAddDialogDone(BuildContext buildContext, Personnel person) {
 		Navigator.pop(buildContext);
 		setState(() {
 			_nameList.add(person);

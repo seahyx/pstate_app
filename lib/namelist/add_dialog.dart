@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pstate_app/consts.dart';
-import 'package:pstate_app/obj_classes/person.dart';
+import 'package:pstate_app/obj_classes/personnel.dart';
 
 class AddDialog extends StatefulWidget {
 
-	final void Function(BuildContext, Person) onDonePressed;
+	final void Function(BuildContext, Personnel) onDonePressed;
 
 	final VoidCallback onCancelPressed;
 
@@ -96,7 +96,7 @@ class AddDialogState extends State<AddDialog> {
 				FlatButton(
 					child: Text('Done'),
 					onPressed: !doneEnabled ? null : () {
-						Person person = Person(
+						Personnel person = Personnel(
 							rank: currentRankSel,
 							fullName: nameFieldController.text
 						);
